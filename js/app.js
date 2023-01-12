@@ -1,32 +1,41 @@
-// const changeLocation = document.getElementById('change-location')
-// const card = document.getElementById('card')
-// const details = document.getElementById('details')
-// const weatherIcon = document.getElementById('weather-icon')
-// const overlay = document.getElementById('overlay')
+const changeLocation = document.getElementById('change-location')
+const card = document.getElementById('card')
+const details = document.getElementById('details')
+const weatherIcon = document.getElementById('weather-icon')
+const overlay = document.getElementById('overlay')
 
-// // update UI
-// const uodateUI = (weather) => {
-//     details.innerHTML = `
-//         <h5 class="mb-3">${weather.name}, ${weather.sys.counry}</h5>
-//         <p class="mb-3">CLOUDS</p>
-//         <div class="display-4 mb-3">
-//             <span>TEMP</span>
-//             <span>&deg;C</span>
-//         </div>
-//     `
-// }
+// changeLocation.city.focus()
 
-// // get weather
-// const getWeather = async (city) => {
-//     const date = await getData(city)
+// update UI
+const updateUI = (weather) => {
+    details.innerHTML = `
+        <h5 class="mb-3">${weather.name}, ${weather.sys.country}</h5>
+        <p class="mb-3">${weather.weather[0].main}</p>
+        <div class="display-4 mb-3">
+            <span>${Math.round(weather.main.temp)}</span>
+            <span>&deg;C</span>
+        </div>
+    `
 
-//     return date
-// }
+    if (card.classList.contains('d-none')) {
+        card.classList.remove('d-none')
+    }
 
-// //get location
-// changeLocation.addEventListener('submit', (e) => {
-//     e.preventDefault()
-//     const cityName = changeLocation.city.value.trim()
-//     changeLocation.reset()
-//     getWeather(cityName)
-// })
+    weatherIcon.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
+
+}
+
+// get weather
+const getWeather = async (city) => {
+    const date = await getData(city)
+
+    return date
+}
+
+//get location
+changeLocation.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const cityName = changeLocation.city.value.trim()
+    changeLocation.reset()
+    getWeather(cityName).then((date) => updateUI(date))
+})
