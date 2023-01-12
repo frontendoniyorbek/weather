@@ -4,7 +4,7 @@ const details = document.getElementById('details')
 const weatherIcon = document.getElementById('weather-icon')
 const overlay = document.getElementById('overlay')
 
-// changeLocation.city.focus()
+changeLocation.city.focus()
 
 // update UI
 const updateUI = (weather) => {
