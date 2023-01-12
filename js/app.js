@@ -3,8 +3,18 @@ const card = document.getElementById('card')
 const details = document.getElementById('details')
 const weatherIcon = document.getElementById('weather-icon')
 const overlay = document.getElementById('overlay')
+const elBtn = document.querySelector('button')
 
 changeLocation.city.focus()
+
+// loader
+function loader(state) {
+    if (state) {
+        overlay.classList.remove('d-none')
+    } else {
+        overlay.classList.add('d-none')
+    }
+}
 
 // update UI
 const updateUI = (weather) => {
