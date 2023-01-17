@@ -1,12 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  width: 100%;
+  height: 100vh;
   background-color: #eeede2;
   letter-spacing: 0.2rem;
   font-size: 0.8rem;
+  background-image: url(./images/weather.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .container {
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
+  background-color: rgba(197, 194, 190, 0.5);
+  border: 10%;
+  padding: 1rem;
+  color: aqua;
+}
+
+.wrapper {
+  margin-top: 10vh;
+}
+
+.weather-info {
+  border: 2px solid aqua;
+}
+
+.title {
+  color: aqua;
 }
 
 .card {
@@ -18,6 +45,7 @@ body {
   top: -50px;
   background-color: #fff;
   border-radius: 50%;
+  border: 1px solid aqua;
 }
 
 .overlay {
@@ -31,4 +59,8 @@ body {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   top: 0;
+}
+
+.site-title {
+  margin-top: 0;
 }
